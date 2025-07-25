@@ -17,18 +17,18 @@ export class HoroscopeService {
   
   // Mapeo de signos zodiacales a Pokémon
   private zodiacPokemonMap: { [key: string]: string } = {
-    'aries': 'charizard',      // Fuego - Aries es de fuego
-    'tauro': 'venusaur',       // Tierra - Tauro es de tierra
-    'geminis': 'alakazam',     // Psíquico - Géminis es de aire
-    'cancer': 'blastoise',     // Agua - Cáncer es de agua
-    'leo': 'arcanine',         // Fuego - Leo es de fuego
-    'virgo': 'ninetales',      // Fuego - Virgo es de tierra pero elegimos uno elegante
-    'libra': 'gardevoir',      // Psíquico - Libra es de aire
-    'escorpio': 'gengar',      // Fantasma - Escorpio es de agua pero elegimos uno misterioso
-    'sagitario': 'rapidash',   // Fuego - Sagitario es de fuego
-    'capricornio': 'steelix',  // Acero - Capricornio es de tierra
-    'acuario': 'jolteon',      // Eléctrico - Acuario es de aire
-    'piscis': 'vaporeon'       // Agua - Piscis es de agua
+    'aries': 'charizard',     
+    'tauro': 'venusaur',       
+    'geminis': 'alakazam',     
+    'cancer': 'blastoise',     
+    'leo': 'arcanine',         
+    'virgo': 'ninetales',      
+    'libra': 'gardevoir',      
+    'escorpio': 'gengar',      
+    'sagitario': 'rapidash',   
+    'capricornio': 'steelix',  
+    'acuario': 'jolteon',      
+    'piscis': 'vaporeon'       
   };
 
   constructor(private pokemonService: PokemonService) {}
