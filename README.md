@@ -197,9 +197,9 @@ La aplicación incluye:
 ## 🤝 Contribución
 
 1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
+2. Crea una rama para tu feature (`git checkout -b feature/NewFeature`)
+3. Commit tus cambios (`git commit -m 'Add some NewFeature'`)
+4. Push a la rama (`git push origin feature/NewFeature`)
 5. Abre un Pull Request
 
 ## 📄 Licencia
@@ -208,12 +208,7 @@ Este proyecto está bajo la Licencia MIT.
 
 ## 👨‍💻 Autor
 
-**Tu Nombre** - [tu-email@ejemplo.com](mailto:tu-email@ejemplo.com)
-
-## 🙏 Agradecimientos
-
-- **PokéAPI** por proporcionar datos completos de Pokémon
-- **Angular Team** por el excelente framework
+**Agustin Karabajich** - [agustin.karabajich@gmail.com](mailto:tu-email@ejemplo.com)
 
 ---
 
