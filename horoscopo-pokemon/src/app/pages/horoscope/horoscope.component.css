@@ -171,13 +171,6 @@
   margin-bottom: 20px;
 }
 
-.pokemon-card-container {
-  display: flex;
-  justify-content: center;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
 .loading {
   text-align: center;
   padding: 60px 20px;

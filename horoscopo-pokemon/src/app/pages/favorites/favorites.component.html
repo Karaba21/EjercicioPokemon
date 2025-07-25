@@ -1,1 +1,68 @@
-<p>favorites works!</p>
+<div class="favorites-page">
+  <div class="container">
+    <div class="favorites-header">
+      <h1>⭐ Mis Favoritos</h1>
+      <p>Tu colección personal de Pokémon favoritos</p>
+    </div>
+
+    <!-- Estado de carga -->
+    <div class="loading" *ngIf="isLoading">
+      <p>⭐ Cargando tus favoritos...</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="favorites-content" *ngIf="!isLoading">
+      
+      <!-- Header con estadísticas y acciones -->
+      <div class="favorites-stats">
+        <div class="stats-info">
+          <span class="favorites-count">{{ getFavoritesCount() }} Pokémon favorito{{ getFavoritesCount() !== 1 ? 's' : '' }}</span>
+        </div>
+        <div class="favorites-actions" *ngIf="getFavoritesCount() > 0">
+          <button class="btn btn-danger" (click)="clearAllFavorites()">
+            🗑️ Eliminar todos
+          </button>
+        </div>
+      </div>
+
+      <!-- Lista de favoritos -->
+      <div class="favorites-list" *ngIf="getFavoritesCount() > 0">
+        <div class="favorites-grid">
+          <div class="favorite-item" *ngFor="let favorite of favorites">
+            <div class="favorite-card">
+              <!-- Botón eliminar -->
+              <button class="remove-btn" (click)="removeFavorite(favorite.id)" 
+                      title="Eliminar de favoritos">
+                ❌
+              </button>
+              
+              <!-- Tarjeta del Pokémon -->
+              <div class="pokemon-card-wrapper" (click)="goToPokemonDetail(favorite.id)">
+                <app-pokemon-card [pokemon]="convertToPokemon(favorite)" [showFavoriteButton]="false"></app-pokemon-card>
+              </div>
+              
+              <!-- Información adicional -->
+              <div class="favorite-info">
+                <span class="added-date">
+                  Agregado: {{ getAddedDate(favorite) }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estado vacío -->
+      <div class="empty-state" *ngIf="getFavoritesCount() === 0">
+        <div class="empty-content">
+          <div class="empty-icon">⭐</div>
+          <h2>No tienes favoritos aún</h2>
+          <p>¡Explora y marca tus Pokémon favoritos en la búsqueda!</p>
+          <button class="btn btn-primary" routerLink="/search">
+            🔍 Ir a búsqueda
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

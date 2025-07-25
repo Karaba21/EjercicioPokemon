@@ -65,7 +65,7 @@ export class PokemonService {
     );
   }
 
-  // Obtener lista de Pokémon por tipo (versión simplificada)
+  // Obtener lista de Pokémon por tipo
   getPokemonByType(type: string): Observable<any[]> {
     const url = `${this.baseUrl}/type/${type}`;
     return this.http.get<any>(url).pipe(
@@ -73,7 +73,7 @@ export class PokemonService {
         console.log('Respuesta de tipo:', response);
         const pokemonList = response.pokemon.map((p: any) => p.pokemon);
         console.log('Lista de Pokémon del tipo:', pokemonList);
-        return pokemonList.slice(0, 10); // Limitar a 10 resultados para pruebas
+        return pokemonList
       }),
       catchError(error => {
         console.error('Error obteniendo Pokémon por tipo:', error);
@@ -82,7 +82,7 @@ export class PokemonService {
     );
   }
 
-  // Obtener detalles completos de un Pokémon por tipo (método separado)
+  // Obtener detalles completos de un Pokémon por tipo
   getPokemonByTypeWithDetails(type: string): Observable<Pokemon[]> {
     return this.getPokemonByType(type).pipe(
       switchMap(pokemonList => {

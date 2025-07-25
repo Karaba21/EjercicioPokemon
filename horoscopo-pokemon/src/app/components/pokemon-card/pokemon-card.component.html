@@ -1,4 +1,14 @@
 <div class="pokemon-card" *ngIf="pokemon">
+  <!-- Botón de favorito -->
+  <button 
+    *ngIf="showFavoriteButton"
+    class="favorite-btn" 
+    (click)="toggleFavorite($event)"
+    [class.favorite]="isFavorite"
+    [title]="isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'">
+    {{ isFavorite ? '⭐' : '☆' }}
+  </button>
+
   <div class="pokemon-image">
     <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" 
          (error)="onImageError($event)">

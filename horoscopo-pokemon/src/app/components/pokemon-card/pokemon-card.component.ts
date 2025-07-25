@@ -1,6 +1,8 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pokemon } from '../../services/pokemon.service';
+import { FavoritesService } from '../../services/favorites.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-pokemon-card',
@@ -9,8 +11,38 @@ import { Pokemon } from '../../services/pokemon.service';
   templateUrl: './pokemon-card.component.html',
   styleUrl: './pokemon-card.component.css'
 })
-export class PokemonCardComponent {
+export class PokemonCardComponent implements OnInit, OnDestroy {
   @Input() pokemon!: Pokemon;
+  @Input() showFavoriteButton: boolean = true; // Para controlar si mostrar el botón
+
+  isFavorite: boolean = false;
+  private subscription: Subscription = new Subscription();
+
+  constructor(private favoritesService: FavoritesService) {}
+
+  ngOnInit() {
+    if (this.showFavoriteButton) {
+      this.checkFavoriteStatus();
+      this.subscription.add(
+        this.favoritesService.favorites$.subscribe(() => {
+          this.checkFavoriteStatus();
+        })
+      );
+    }
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  checkFavoriteStatus() {
+    this.isFavorite = this.favoritesService.isFavorite(this.pokemon.id);
+  }
+
+  toggleFavorite(event: Event) {
+    event.stopPropagation(); // Evitar que se propague el clic
+    this.favoritesService.toggleFavorite(this.pokemon);
+  }
 
   getTypeNames(types: any[]): string {
     return types.map(t => t.type.name).join(', ');
