@@ -1,1 +1,85 @@
-<p>horoscope works!</p>
+<div class="horoscope-page">
+  <div class="container">
+    <div class="horoscope-header">
+      <h1>✨ Mi Horóscopo Pokémon</h1>
+      <p>Descubre qué Pokémon del destino te corresponde según tu signo zodiacal</p>
+    </div>
+
+    <!-- Formulario del horóscopo -->
+    <div class="horoscope-form-container">
+      <div class="card">
+        <form (ngSubmit)="onSubmit()" class="horoscope-form">
+          <div class="form-group">
+            <label for="name">Tu nombre:</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="name" 
+              class="form-control" 
+              placeholder="Ej: Juan, María..."
+              required>
+          </div>
+          
+          <div class="form-group">
+            <label for="birthDate">Fecha de nacimiento:</label>
+            <input 
+              type="date" 
+              id="birthDate" 
+              name="birthDate" 
+              [(ngModel)]="birthDate" 
+              class="form-control" 
+              required>
+          </div>
+          
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary" [disabled]="isLoading">
+              <span *ngIf="isLoading">🔮 Consultando...</span>
+              <span *ngIf="!isLoading">✨ Descubrir mi Pokémon</span>
+            </button>
+            <button type="button" class="btn" (click)="clearForm()" *ngIf="hasSearched">
+              🗑️ Limpiar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+    <!-- Resultados del horóscopo -->
+    <div class="horoscope-results" *ngIf="hasSearched">
+      <div class="card">
+        <div class="loading" *ngIf="isLoading">
+          <p>🔮 Consultando las estrellas...</p>
+        </div>
+        
+        <div class="horoscope-result" *ngIf="!isLoading && horoscopeResult">
+          <div class="result-header">
+            <h2>🌟 Tu Horóscopo Pokémon</h2>
+            <div class="zodiac-info">
+              <span class="zodiac-sign">{{ getZodiacSignDisplay(horoscopeResult.zodiacSign) }}</span>
+              <span class="birth-info">Naciste el {{ horoscopeResult.birthDate | date:'longDate' }}</span>
+            </div>
+          </div>
+          
+          <div class="result-message">
+            <p>{{ horoscopeResult.message }}</p>
+          </div>
+          
+          <div class="pokemon-reveal">
+            <h3>🎯 Tu Pokémon del destino es:</h3>
+            <div class="pokemon-card-container">
+              <app-pokemon-card [pokemon]="horoscopeResult.pokemon"></app-pokemon-card>
+            </div>
+          </div>
+        </div>
+        
+        <div class="no-result" *ngIf="!isLoading && !horoscopeResult && !errorMessage">
+          <p>No se pudo generar tu horóscopo. Intenta de nuevo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
