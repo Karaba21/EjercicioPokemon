@@ -1,1 +1,31 @@
-<p>navbar works!</p>
+<nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-brand">
+      <div class="logo">
+        <span class="logo-text">Horóscopo Pokémon</span>
+        <span class="logo-subtitle">Descubre tu Pokémon del destino</span>
+      </div>
+    </div>
+    
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a routerLink="/search" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">🔍</span>
+          Buscar Pokémon
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/horoscope" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">✨</span>
+          Mi Horóscopo
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="/favorites" routerLinkActive="active" class="nav-link">
+          <span class="nav-icon">⭐</span>
+          Favoritos
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

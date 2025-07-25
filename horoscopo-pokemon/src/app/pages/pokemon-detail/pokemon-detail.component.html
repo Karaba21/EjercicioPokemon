@@ -1,1 +1,27 @@
-<p>pokemon-detail works!</p>
+<div class="pokemon-detail-page">
+  <div class="container">
+    <div class="detail-header">
+      <button class="btn" (click)="goBack()">
+        ← Volver a búsqueda
+      </button>
+      <h1>Detalles del Pokémon</h1>
+    </div>
+
+    <!-- Estado de carga -->
+    <div class="loading" *ngIf="isLoading">
+      <p>🔍 Cargando Pokémon...</p>
+    </div>
+
+    <!-- Mensaje de error -->
+    <div class="error" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </div>
+
+    <!-- Detalles del Pokémon -->
+    <div class="pokemon-detail-container" *ngIf="!isLoading && pokemon && !errorMessage">
+      <div class="detail-card">
+        <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+      </div>
+    </div>
+  </div>
+</div>

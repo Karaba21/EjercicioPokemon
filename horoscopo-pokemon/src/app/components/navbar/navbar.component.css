@@ -1,0 +1,116 @@
+.navbar {
+  background-color: var(--pokemon-red);
+  padding: 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.logo-text {
+  color: var(--pokemon-yellow);
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 0px var(--pokemon-dark-blue);
+  letter-spacing: 1px;
+}
+
+.logo-subtitle {
+  color: var(--pokemon-white);
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-top: -5px;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  color: var(--pokemon-white);
+  text-decoration: none;
+  padding: 25px 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 3px solid transparent;
+  height: 70px;
+  box-sizing: border-box;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-bottom-color: var(--pokemon-yellow);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-bottom-color: var(--pokemon-yellow);
+  color: var(--pokemon-yellow);
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 20px;
+  }
+  
+  .logo-text {
+    font-size: 1.5rem;
+  }
+  
+  .navbar-nav {
+    margin-top: 15px;
+    gap: 10px;
+  }
+  
+  .nav-link {
+    padding: 10px 15px;
+    height: auto;
+    border-bottom: none;
+    border-radius: 5px;
+  }
+  
+  .nav-link:hover,
+  .nav-link.active {
+    border-bottom: none;
+    background-color: var(--pokemon-dark-blue);
+  }
+}

@@ -1,1 +1,151 @@
-/* You can add global styles to this file, and also import other style files */
+/* Estilos globales inspirados en PokéAPI */
+:root {
+  --pokemon-red: #dc0a2d;
+  --pokemon-yellow: #ffcb05;
+  --pokemon-blue: #3d7dca;
+  --pokemon-dark-blue: #003a70;
+  --pokemon-light-gray: #f5f5f5;
+  --pokemon-dark-gray: #2c2c2c;
+  --pokemon-white: #ffffff;
+  --pokemon-black: #000000;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--pokemon-light-gray);
+  color: var(--pokemon-black);
+  line-height: 1.6;
+}
+
+/* Estilos para botones */
+.btn {
+  background-color: var(--pokemon-blue);
+  color: var(--pokemon-white);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--pokemon-dark-blue);
+}
+
+.btn-primary {
+  background-color: var(--pokemon-red);
+}
+
+.btn-primary:hover {
+  background-color: #b30723;
+}
+
+/* Estilos para formularios */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid var(--pokemon-blue);
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--pokemon-red);
+  box-shadow: 0 0 5px rgba(220, 10, 45, 0.3);
+}
+
+/* Estilos para tarjetas */
+.card {
+  background-color: var(--pokemon-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para contenedores */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Estilos para títulos */
+h1, h2, h3 {
+  color: var(--pokemon-dark-blue);
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Estilos para enlaces */
+a {
+  color: var(--pokemon-blue);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--pokemon-red);
+}
+
+/* Estilos para listas */
+ul {
+  list-style: none;
+}
+
+/* Estilos para imágenes */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Estilos para loading */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--pokemon-dark-gray);
+}
+
+/* Estilos para errores */
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #c62828;
+  margin-bottom: 20px;
+}
+
+/* Estilos para éxito */
+.success {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+  padding: 15px;
+  border-radius: 5px;
+  border-left: 4px solid #2e7d32;
+  margin-bottom: 20px;
+}

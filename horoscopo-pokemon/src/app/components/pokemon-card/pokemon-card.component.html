@@ -1,1 +1,30 @@
-<p>pokemon-card works!</p>
+<div class="pokemon-card" *ngIf="pokemon">
+  <div class="pokemon-image">
+    <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name" 
+         (error)="onImageError($event)">
+  </div>
+  <div class="pokemon-info">
+    <h3>{{ pokemon.name | titlecase }}</h3>
+    <p class="pokemon-id">#{{ pokemon.id }}</p>
+    <p class="pokemon-types">
+      <span class="type-badge" 
+            *ngFor="let type of pokemon.types"
+            [style.background-color]="getTypeColor(type.type.name)">
+        {{ type.type.name | titlecase }}
+      </span>
+    </p>
+    <div class="pokemon-stats">
+      <p>Altura: {{ pokemon.height / 10 }}m</p>
+      <p>Peso: {{ pokemon.weight / 10 }}kg</p>
+    </div>
+    <div class="pokemon-abilities">
+      <h4>Habilidades:</h4>
+      <ul>
+        <li *ngFor="let ability of pokemon.abilities">
+          {{ ability.ability.name | titlecase }}
+          <span *ngIf="ability.is_hidden" class="hidden-ability">(Oculta)</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
