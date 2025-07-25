@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { FavoritesService, FavoritePokemon } from '../../services/favorites.service';
 import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card.component';
@@ -8,7 +8,7 @@ import { PokemonCardComponent } from '../../components/pokemon-card/pokemon-card
 @Component({
   selector: 'app-favorites',
   standalone: true,
-  imports: [CommonModule, PokemonCardComponent],
+  imports: [CommonModule, PokemonCardComponent, RouterModule],
   templateUrl: './favorites.component.html',
   styleUrl: './favorites.component.css'
 })
